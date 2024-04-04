@@ -8,4 +8,4 @@ DB: mysql
 
 To run:
 1. Clone project
-2. Run 'docker-compose up' inside the project directory
+2. Run `docker-compose up` inside the project directory
