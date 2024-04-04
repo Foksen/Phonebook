@@ -1,0 +1,58 @@
+version: '3'
+
+services:
+
+  apache:
+    image: httpd:2.4
+    container_name: apache_container
+    ports:
+      - 8080:80
+    volumes:
+      - ./apache/public-html:/usr/local/apache2/htdocs:ro
+    depends_on:
+      - backend
+
+  mysql:
+    image: mysql:5.6
+    container_name: mysql_container
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: niaspo_db
+      MYSQL_USER: igor
+      MYSQL_PASSWORD: qwerty
+    volumes:
+      - niaspo_mysql:/var/lib/mysql
+    networks:
+      - niaspo_net
+    restart: always
+    healthcheck:
+      test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost", "-u", "$$MYSQL_USER", "--password=$$MYSQL_PASSWORD"]
+      interval: 5s
+      timeout: 5s
+      retries: 3
+
+  backend:
+    build: ./PhonebookServer/build/libs
+    container_name: backend_container
+    ports:
+      - 8090:8080
+    environment:
+      DB_HOST: mysql_container
+      DB_PORT: 3306
+      DB_NAME: niaspo_db
+      DB_USER: igor
+      DB_PASSWORD: qwerty
+    networks:
+      - niaspo_net
+    restart: always
+    depends_on:
+      mysql:
+        condition: service_healthy
+
+volumes:
+  niaspo_mysql:
+    name: niaspo_mysql
+
+networks:
+  niaspo_net:
+    name: niaspo_net

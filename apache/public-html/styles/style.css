@@ -1,0 +1,148 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
+/* General */
+
+* {
+    font-family: "Open Sans", sans-serif;
+    font-weight: 400;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    background-color: #f5f7fd;
+}
+
+/* Headings */
+
+h1, h2 {
+    margin: 0;
+}
+
+h1 {
+    font-weight: 600;
+}
+
+h2 {
+    font-weight: 500;
+}
+
+/* Inputs */
+
+input[type=text] {
+    padding: 8px 24px;
+    width: 100%;
+    font-size: 18px;
+    border: 1.5px solid #cfd1d7;
+    border-radius: 30px;
+    outline: none;
+    transition: border 0.15s;
+}
+
+input[type=text].invalid {
+    border: 1.5px solid #ff0000;
+}
+
+input[type=submit] {
+    position: relative;
+    padding: 10px 30px;
+    font-size: 18px;
+    font-weight: 500;
+    color: #FFFFFF;
+    background-color: #4c74eb;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: filter 0.15s;
+}
+
+input[type=submit]:hover {
+    filter: brightness(0.93);
+}
+
+input[type=submit]:active {
+    filter: brightness(0.86);
+}
+
+input:disabled {
+    color: #afb1b8;
+    cursor: default;
+    background-color: #e7e8ec;
+}
+
+/* Elements */
+
+header {
+    padding: 30px 0 20px;
+}
+
+header h1 {
+    text-align: center;
+}
+
+main {
+    margin: 0 auto;
+    padding: 20px 50px 60px;
+    max-width: 1140px;
+}
+
+section {
+    padding: 40px;
+    margin-bottom: 30px;
+    background-color: #FFFFFF;
+    border-radius: 40px;
+    box-shadow: 0 0 10px #cfd0d450;
+}
+
+section:last-child {
+    margin-bottom: 0;
+}
+
+h2 {
+    margin-bottom: 20px;
+}
+
+form span {
+    display: flex;
+    gap: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+tr {
+    transition: opacity 0.25s;
+}
+
+tr:first-child {
+    color: #91939c;
+}
+
+th {
+    padding: 10px 16px;
+    text-align: left;
+    border: 1px solid #e7e8ec;
+}
+
+th:nth-child(1) {
+    width: 100px;
+}
+
+th:nth-child(3) {
+    width: 300px;
+}
+
+.notification {
+    position: fixed;
+    right: 100px;
+    bottom: 60px;
+    padding: 20px;
+    font-size: 18px;
+    font-weight: 500;
+    background-color: #FFFFFF;
+    border-radius: 20px;
+    box-shadow: 0 0 10px #cfd0d450;
+    transition: opacity 0.25s;
+}

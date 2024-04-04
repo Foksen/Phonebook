@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Телефонный справочник</title>
+    <link rel="stylesheet" href="./styles/style.css">
+</head>
+<body>
+    <header>
+        <h1>Телефонный справочник</h1>
+    </header>
+    <main>
+        <section>
+            <form id="form-add">
+                <h2>Добавить контакт</h2>
+                <span>
+                    <input name="name" id="input-name" type="text" placeholder="Имя" required>
+                    <input name="phone" id="input-phone" type="text" placeholder="Телефон" pattern="^\+?\d+" required>
+                    <input id="submit-add" type="submit" value="Добавить" disabled>
+                </span>
+            </form>
+        </section>
+        <section>
+            <form id="form-delete">
+                <h2>Удалить контакт</h2>
+                <span>
+                    <input name="id" id="input-id" type="text" placeholder="ID" pattern="^\d+" min="0" step="1" required>
+                    <input id="submit-delete" type="submit" value="Удалить" disabled>
+                </span>
+            </form>
+        </section>
+        <section>
+            <h2>Контакты</h2>
+            <table id="table">
+                <tr>
+                    <th>ID</th>
+                    <th>Имя</th>
+                    <th>Телефон</th>
+                </tr>
+            </table>
+        </section>
+    </main>
+
+    <script src="./scripts/input-check.js"></script>
+    <script src="./scripts/notification.js"></script>
+    <script src="./scripts/ajax.js"></script>
+</body>
+</html>
